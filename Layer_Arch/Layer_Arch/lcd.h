@@ -14,4 +14,5 @@ void int_lcd(void);
 void comand_lcd(dio_channelType en,dio_channelType rs,uint_8 cmd);
 void write_lcd(dio_channelType en,dio_channelType rs,uint_8 data);
 void string_lcd(char *str);
+void LCD_Clear();
 #endif /* LCD_H_ */

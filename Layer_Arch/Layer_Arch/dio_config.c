@@ -8,10 +8,10 @@
 #include "dio_hw.h"
 #include "bit_math.h"
 const dio_configType dio_pin_config[]={
-/*A0*/   {output,STD_low},
-/*A1*/   {output,STD_low},
-/*A2*/	 {output,STD_low},
-/*A3*/	 {output,STD_low},
+/*A0*/   {input,STD_low},
+/*A1*/   {input,STD_low},
+/*A2*/	 {input,STD_low},
+/*A3*/	 {input,STD_low},
 /*A4*/	 {output,STD_low},
 /*A5*/	 {output,STD_low},
 /*A6*/	 {output,STD_low},

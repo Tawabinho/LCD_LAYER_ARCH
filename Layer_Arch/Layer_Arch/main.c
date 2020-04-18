@@ -9,14 +9,22 @@
 #include "lcd.h"
 #include "std_types.h"
 #include "util\delay.h"
+#include <stdio.h>
+#include <string.h>
+#include "adc.h"
 int main(void)
 {
     int_lcd();
+	int_adc();
     while (1) 
     {
-		string_lcd("hola");
-		comand_lcd(dio_channel_B3,dio_channel_B1,0xc0);
-		string_lcd("ahmed");
+		unsigned int value = adc_read(1);
+		char buffer[10]="";
+		sprintf(buffer,"%d",value);
+		comand_lcd(dio_channel_B3,dio_channel_B1,0x80);
+		string_lcd("the pot =");
+		comand_lcd(dio_channel_B3,dio_channel_B1,0xC0);
+		string_lcd(buffer);
     }
 }
 

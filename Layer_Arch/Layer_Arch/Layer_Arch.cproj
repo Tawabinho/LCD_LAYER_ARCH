@@ -120,6 +120,15 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="adc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="adc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="adc_confg.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="bit_math.h">
       <SubType>compile</SubType>
     </Compile>

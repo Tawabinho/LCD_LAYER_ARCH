@@ -51,3 +51,9 @@ void string_lcd(char *str){
 		str++;
 	}	
 }
+void LCD_Clear()
+{
+	comand_lcd (dio_channel_B3,dio_channel_B1,0x01);		/* Clear display */
+	_delay_ms(2);
+	comand_lcd (dio_channel_B3,dio_channel_B1,0x80);		/* Cursor at home position */
+}

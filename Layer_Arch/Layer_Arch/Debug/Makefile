@@ -37,6 +37,8 @@ SUBDIRS :=
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../adc.c \
+../adc_confg.c \
 ../dio.c \
 ../dio_config.c \
 ../lcd.c \
@@ -51,6 +53,8 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+adc.o \
+adc_confg.o \
 dio.o \
 dio_config.o \
 lcd.o \
@@ -58,6 +62,8 @@ lcd_config.o \
 main.o
 
 OBJS_AS_ARGS +=  \
+adc.o \
+adc_confg.o \
 dio.o \
 dio_config.o \
 lcd.o \
@@ -65,6 +71,8 @@ lcd_config.o \
 main.o
 
 C_DEPS +=  \
+adc.d \
+adc_confg.d \
 dio.d \
 dio_config.d \
 lcd.d \
@@ -72,6 +80,8 @@ lcd_config.d \
 main.d
 
 C_DEPS_AS_ARGS +=  \
+adc.d \
+adc_confg.d \
 dio.d \
 dio_config.d \
 lcd.d \
@@ -92,6 +102,20 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+./adc.o: .././adc.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+./adc_confg.o: .././adc_confg.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 ./dio.o: .././dio.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
